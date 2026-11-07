@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weatherly</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+
+    <nav class="navbar glass">
+
+        <div class="logo">
+            <i class="fa-solid fa-cloud-sun"></i>
+            Weatherly
+        </div>
+
+        <div class="nav-actions">
+
+            <button id="saveCity" class="icon-btn">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <button id="themeBtn" class="icon-btn">
+                <i id="themeIcon" class="fa-solid fa-moon"></i>
+            </button>
+
+        </div>
+
+    </nav>
+
+    <section class="search-section glass">
+
+        <input
+            type="text"
+            id="cityInput"
+            placeholder="Search city..."
+        >
+
+        <button id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+    </section>
+
+    <div
+    class="loader hidden"
+    id="loader">
+
+        <div class="spinner"></div>
+
+        <p>Fetching weather data...</p>
+
+    </div>
+
+    <!-- Error -->
+
+    <div
+    class="error-box hidden"
+    id="errorBox">
+
+        <i class="fa-solid fa-circle-exclamation"></i>
+
+        <span id="errorText"></span>
+
+    </div>
+
+    <button
+    id="retryBtn"
+    class="retry-btn hidden">
+
+        Try Again
+
+    </button>
+
+    <section class="weather-card glass">
+
+        <div
+        id="weather-icon"
+        class="weather-icon">
+
+            ☀️
+
+        </div>
+
+        <h1
+        class="temp"
+        id="temperature">
+
+            --
+
+        </h1>
+
+        <h2 id="city-name">
+
+            Search City
+
+        </h2>
+
+        <p id="description">
+
+            Weather Description
+
+        </p>
+
+        <div class="high-low">
+
+            H: <span id="temp-max">--</span>°
+            |
+            L: <span id="temp-min">--</span>°
+
+        </div>
+
+    </section>
+
+    <!-- Weather Details -->
+
+    <section class="details-grid">
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-droplet"></i>
+            </div>
+
+            <h3>Humidity</h3>
+
+            <span id="humidity">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-wind"></i>
+            </div>
+
+            <h3>Wind Speed</h3>
+
+            <span id="wind">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-gauge-high"></i>
+            </div>
+
+            <h3>Pressure</h3>
+
+            <span id="pressure">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+
+            <h3>Visibility</h3>
+
+            <span id="visibility">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-temperature-half"></i>
+            </div>
+
+            <h3>Feels Like</h3>
+
+            <span id="feels-like">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-sun"></i>
+            </div>
+
+            <h3>UV Index</h3>
+
+            <span id="uv">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-sunrise"></i>
+            </div>
+
+            <h3>Sunrise</h3>
+
+            <span id="sunrise">--</span>
+
+        </div>
+
+        <div class="detail-card glass">
+
+            <div class="icon-box">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+            <h3>Sunset</h3>
+
+            <span id="sunset">--</span>
+
+        </div>
+
+    </section>
+
+    <!-- Hourly Forecast -->
+
+    <section class="hourly-section glass">
+
+        <div class="section-title">
+
+            <h2>24 Hour Forecast</h2>
+
+        </div>
+
+        <div
+        class="hourly-container"
+        id="hourly-container">
+
+            <div class="hour-card">
+                <p>1 PM</p>
+                <span>☀️</span>
+                <h4>29°</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Weekly Forecast -->
+
+    <section class="weekly-section glass">
+
+        <div class="section-title">
+
+            <h2>7 Day Forecast</h2>
+
+        </div>
+
+        <div id="weekly-container">
+
+            <div class="forecast-row">
+
+                <span>Monday</span>
+
+                <span>☀️</span>
+
+                <span>32° / 24°</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <p>
+            Built by Faizan ❤️
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
